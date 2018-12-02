@@ -9,7 +9,7 @@ class Adj;
 class Node;
 class Graph;
 
-void help(void);
+void help(char **argv);
 char* searchParameter(char *command, int argc, char **argv);
 int main(int argc, char **argv);
 

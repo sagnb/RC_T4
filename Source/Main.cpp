@@ -2,8 +2,8 @@
 
 using namespace std;
 
-void help(void){
-	printf("./a.out -t <tam of graph>\n");
+void help(char **argv){
+	printf("%s -g <file_name_graph> -h <file_name_hosts>\n", argv[0]);
 	exit(0);
 }
 
@@ -15,25 +15,25 @@ char* searchParameter(char *command, int argc, char **argv){
 			}
 		}
 	}
-	help();
+	help(argv);
 }
 
 int main(int argc, char **argv){
-	if(argc<3){
-		help();
+	if(argc<5){
+		help(argv);
 	}
-	int tam=atoi(searchParameter("-t", argc, argv));
-	if(tam<1){
-		exit(0);
-	}
-	Graph *graph=new Graph(tam);
-	graph->createAdj(0, 1, 0);
-	graph->createAdj(0, 2, 0);
-	graph->createAdj(1, 1, 0);
-	graph->createAdj(2, 2, 0);
-	graph->createAdj(3, 1, 0);
-	graph->createAdj(4, 2, 0);
-	graph->print();
-	delete graph;
+	// int tam=atoi(searchParameter("-t", argc, argv));
+	// if(tam<5){
+	// 	exit(0);
+	// }
+	// Graph *graph=new Graph(tam);
+	// graph->createAdj(0, 1, 0);
+	// graph->createAdj(0, 2, 0);
+	// graph->createAdj(1, 1, 0);
+	// graph->createAdj(2, 2, 0);
+	// graph->createAdj(3, 1, 0);
+	// graph->createAdj(4, 2, 0);
+	// graph->print();
+	// delete graph;
 	return 0;
 }
