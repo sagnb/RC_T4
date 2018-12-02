@@ -1,7 +1,7 @@
 CPPFLAGS = -std=c++11
 
-a.out:	Cache/Main.o Cache/Graph.o Cache/Node.o Cache/Adj.o
-	g++ Cache/Main.o Cache/Graph.o Cache/Node.o Cache/Adj.o $(CPPFLAGS)
+a.out:	Cache Cache/Main.o Cache/Graph.o Cache/Node.o Cache/Adj.o
+	@g++ Cache/Main.o Cache/Graph.o Cache/Node.o Cache/Adj.o $(CPPFLAGS)
 
 Cache/Main.o:	Source/Main.cpp Include/Main.hpp
 	g++ -c Source/Main.cpp -o Cache/Main.o
@@ -15,5 +15,15 @@ Cache/Node.o:	Source/Node.cpp Include/Node.hpp
 Cache/Adj.o:	Source/Adj.cpp Include/Adj.hpp
 	g++ -c Source/Adj.cpp -o Cache/Adj.o
 
+Cache:
+	@if [ ! -d "Cache" ]; then\
+		mkdir Cache;\
+	fi
+
+help:
+	@echo "make: to compile"
+	@echo "Cache: to create Cache dir"
+	@echo "clean: to clean *.o"
+
 clean:
-	rm Cache/*.o
+	@rm Cache/*.o
