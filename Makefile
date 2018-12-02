@@ -22,9 +22,9 @@ Cache:
 
 help:
 	@echo "make: to compile"
-	@echo "Cache: to create Cache dir"
-	@echo "clean: to clean *.o"
-	@echo "dependencies: TODO"
+	@echo "make clean: to clean *.o"
+	@echo "make help: to view help commands"
+	@echo "make dependencies: TODO"
 
 dependencies:
 	//TODO
