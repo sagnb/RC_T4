@@ -1,33 +1,67 @@
 # RC_T4
 
-    Em construção ...
+## Description
+RC_T4 is a project made for the discipline of computer networks. In this project we are working on a graph with n nodes representing ASs, and all nodes must have paths for all other nodes.
 
-    Ler de um arquivo um grafo não direcionado representando um mapa de ASs da Internet. O grafo deve conter no mínimo 13 ASs (AS1, AS2, ..., AS13). Deve haver caminhos entre todos os ASs, ou seja, escolhendo dois ASs quaisquer, como AS3 e AS9, dever have um caminho entre eles. Este caminho pode ser uma ligação direta (aresta) ou um caminho passando por outros nós (ASs) e arrestas. Não pode haver conexão direta do tipo todos com todos, ou seja, todos os ASs conectados diretamente a todos os demais ASs.
+The goal is given two nodes to discover:
+1. the smallest path between hosts Hx and Hy
+2. the best way (lower cost considering the costs of arrests)
+3. the best path in terms of latency (lower total latency), that is, considering the number of jumps / routers within nodes (ASs)
 
-    Cada AS possui um número mínimo de saltos internos (roteadores) até qualquer saída do sistema. Exemplo: o AS1 possui R=2 e o AS7 possui R=7. Isto significa que o AS1 é, provavelmente, pequeno, enquanto que o AS7 é grande e agrega latência (devido ao número de roteadores/saltos) às comunicações que passam através do AS.
+## Dependencies
+### TODO
 
-    Ler um segundo arquivo contendo pares host1/AS1 host2/AS2. Isto significa que o host1 está conectado ao AS1 e o host2 está conectado ao AS2. Exemplo:
+## Compilation
+In your terminal, write:
+```bash
+make
+```
+or
+```
+make help
+```
+for more instructions
 
-        H1 AS2 H2 AS13
+## Usage
+In your terminal, write after compiling:
+```
+./a.out -g <file_name_graph> -h <file_name_hosts>
+```
+where file_name_graph must be replaced by the file name of the graph
+where file_name_hosts must be replaced by the file name of the hosts
 
-        H3 AS5 H4 AS1
+## Input FILES
 
-        ...
+### Graph
+The first line must contain the number of nodes followed by the following lines containing the numbers of the connected nodes and the capacity of the connection. Ex.:
+```
+5
+1 2 10
+2 3 11
+3 4 3
+4 5 20
+```
 
-        Hx AS4 Hy AS12
+### Hosts
+File containing host1 / AS1 host2 / AS2 pairs. This means that host1 is connected to AS1 and host2 is connected to AS2. Ex.:
+```
+H1 AS2 H2 AS13
 
-    Para cada par de hosts/ASs (linha do arquivo), o programa deverá encontrar e listar:
+H3 AS5 H4 AS1
 
-        (a) o menor caminho entre os hosts Hx e Hy;
+...
 
-        (b) o melhor caminho (menor custo considerando os custos das arrestas);
+Hx AS4 Hy AS12
+```
 
-        (c) o melhor caminho em termos de latência (menor latência total), isto é, considerando o número de saltos/roteadores dentro dos nós (ASs).
+## Status
 
-    Coisas a observar:
+[X] running
 
-        (i) Cada arresta possui um limite (ponto de saturação). Exemplo: 10 conexões host/host podem passar por ela num intervalo de tempo T.
+[ ] stoped
 
-        (ii) Cada arresta (conexão entre dois ASs quaisquer) possui um custo financeiro associado. Definir os custos de cada arresta de forma pseudo-aleatória.
+[ ] finished
 
-    NOTA: é importante discutir em aula ou em horário/local a combinar. Não deixar para última hora.
+## Contributing
+[Guilherme Neri](https://github.com/161150744)
+[Lucas Antunes](https://github.com/lucasantunesdealmeida)
