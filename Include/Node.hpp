@@ -1,11 +1,9 @@
 #ifndef NODE_HPP
 #define NODE_HPP
 
-#include<cstdio>
-
-#include<vector>
-
-#include"Adj.hpp"
+#include<cstdio>//C
+#include<vector>//CPP
+#include"Adj.hpp"//HPP
 
 class Adj;
 
