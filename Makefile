@@ -24,6 +24,10 @@ help:
 	@echo "make: to compile"
 	@echo "Cache: to create Cache dir"
 	@echo "clean: to clean *.o"
+	@echo "dependencies: TODO"
+
+dependencies:
+	//TODO
 
 clean:
 	@rm Cache/*.o
