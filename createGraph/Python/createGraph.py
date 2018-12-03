@@ -1,5 +1,6 @@
 import sys
 import os
+import random
 
 def createFile(filePath):
 	fileName=filePath.split('/')[len(filePath.split('/'))-1]
@@ -28,7 +29,50 @@ def createGraph(t, p):
 	if t<13:
 		help()
 	file=createFile(p)
-	#TODO
+	fileStrings=''
+	fileTam=0
+	graph=[]
+	dic={}
+	for i in range(t):
+		graph.append(i)
+	for i in range(1, int(t/3)):
+		fileStrings+=(''.join('{0} {1} {2}\n'.format(0, i, random.randint(1, 20))))
+		fileTam+=1
+	graph.pop(0)
+	for i in range(int(t/3), int(2*(t/3))):
+		fileStrings+=(''.join('{0} {1} {2}\n'.format(1, i, random.randint(1, 20))))
+		fileTam+=1
+	graph.pop(0)
+	for i in range(int(2*(t/3)), t):
+		fileStrings+=(''.join('{0} {1} {2}\n'.format(2, i, random.randint(1, 20))))
+		fileTam+=1
+	graph.pop(0)
+	tamAux=int(len(graph)/2)
+	for i in range(tamAux):
+		i1=random.randint(0, len(graph)-1)
+		i2=random.randint(0, len(graph)-1)
+		c=random.randint(1, 20)
+		adj=''.join('{0} {1} {2}\n'.format(graph[i1], graph[i2], c))
+		if not ''.join('{0} {1}\n'.format(graph[i1], graph[i2])) in dic and not ''.join('{1} {0}\n'.format(graph[i1], graph[i2])) in dic and not i1==i2:
+			dic[''.join('{0} {1}\n'.format(graph[i1], graph[i2]))]=True
+			dic[''.join('{1} {0}\n'.format(graph[i1], graph[i2]))]=True
+			fileStrings+=(adj)
+			fileTam+=1
+			graph.pop(i1)
+	for i in range(t):
+		if len(graph)==0:
+			continue
+		i1=random.randint(0, len(graph)-1)
+		i2=random.randint(0, len(graph)-1)
+		c=random.randint(1, 20)
+		adj=''.join('{0} {1} {2}\n'.format(graph[i1], graph[i2], c))
+		if not ''.join('{0} {1}\n'.format(graph[i1], graph[i2])) in dic and not ''.join('{1} {0}\n'.format(graph[i1], graph[i2])) in dic and not i1==i2:
+			dic[''.join('{0} {1}\n'.format(graph[i1], graph[i2]))]=True
+			dic[''.join('{1} {0}\n'.format(graph[i1], graph[i2]))]=True
+			fileStrings+=(adj)
+			fileTam+=1
+	file.write('{}\n'.format(fileTam))
+	file.write(fileStrings)
 	file.close()
 
 if __name__=='__main__':
