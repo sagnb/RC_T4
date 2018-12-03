@@ -28,6 +28,8 @@ In your terminal, write after compiling:
 ./a.out -g <file_name_graph> -h <file_name_hosts>
 ```
 where file_name_graph must be replaced by the file name of the graph
+
+
 where file_name_hosts must be replaced by the file name of the hosts
 
 ## Input FILES
