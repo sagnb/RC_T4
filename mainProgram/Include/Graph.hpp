@@ -13,7 +13,7 @@ public:
 	Graph();
 	Graph(int numNodes);
 	~Graph();
-	void createAdj(int of, int at, int cap);
+	void createAdj(int of, int at, int cap, int cost);
 	void print();
 };
 

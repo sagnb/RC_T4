@@ -20,8 +20,8 @@ Graph::~Graph(){
 	}
 }
 
-void Graph::createAdj(int of, int at, int cap){
-	this->nodes[of]->addAdj(at, cap);
+void Graph::createAdj(int of, int at, int cap, int cost){
+	this->nodes[of]->addAdj(at, cap, cost);
 }
 
 void Graph::print(){

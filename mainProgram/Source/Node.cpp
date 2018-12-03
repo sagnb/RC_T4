@@ -28,22 +28,30 @@ bool Node::getFlag(){
 	return this->visitFLag;
 }
 
-int Node::at(int adj){
-	return this->adjs.at(adj)->getAt();
+int Node::getJumps(){
+	return this->jumps;
 }
 
-void Node::addAdj(int at, int cap){
+void Node::setFlag(bool status){
+	this->visitFLag=status;
+}
+
+vector<Adj*> Node::getAdjs(){
+	return this->adjs;
+}
+
+void Node::addAdj(int at, int cap, int cost){
 	for(int i=0;  i<this->adjs.size(); i++){
 		if(at==this->adjs.at(i)->getAt()){
 			return;
 		}
 	}
-	this->adjs.push_back(new Adj(at, cap));
+	this->adjs.push_back(new Adj(at, cap, cost));
 }
 
 void Node::print(){
 	printf("node: %d jumps: %d\n", this->index, this->jumps);
 	for(int i=0; i<this->adjs.size(); i++){
-		printf("\tadj %d: %d cap: %d\n", i, this->adjs.at(i)->getAt(), this->adjs.at(i)->getCap());
+		printf("\tadj %d: %d cost: %d\n", i, this->adjs.at(i)->getAt(), this->adjs.at(i)->getCost());
 	}
 }

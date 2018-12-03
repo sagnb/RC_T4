@@ -19,8 +19,10 @@ public:
 	~Node();
 	int getIndex();
 	bool getFlag();
-	int at(int adj);
-	void addAdj(int at, int cap);
+	int getJumps();
+	void setFlag(bool status);
+	std::vector<Adj*> getAdjs();
+	void addAdj(int at, int cap, int cost);
 	void print();
 };
 

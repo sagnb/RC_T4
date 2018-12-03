@@ -5,13 +5,15 @@ class Adj{
 private:
 	int at;
 	int cap;
+	int charge;
+	int cost;
 public:
 	Adj();
-	Adj(int at, int cap);
+	Adj(int at, int cap, int cost);
 	~Adj();
-	void setCap(int cap);
 	int getAt();
-	int getCap();
+	int getCost();
+	bool updateCharge(int charge);
 };
 
 #endif

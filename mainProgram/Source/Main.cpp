@@ -16,24 +16,14 @@ char* searchParameter(char *command, int argc, char **argv){
 		}
 	}
 	help(argv);
+	return command;
 }
 
 int main(int argc, char **argv){
 	if(argc<5){
 		help(argv);
 	}
-	// int tam=atoi(searchParameter("-t", argc, argv));
-	// if(tam<5){
-	// 	exit(0);
-	// }
-	// Graph *graph=new Graph(tam);
-	// graph->createAdj(0, 1, 0);
-	// graph->createAdj(0, 2, 0);
-	// graph->createAdj(1, 1, 0);
-	// graph->createAdj(2, 2, 0);
-	// graph->createAdj(3, 1, 0);
-	// graph->createAdj(4, 2, 0);
-	// graph->print();
-	// delete graph;
+	char* fileNameGraph=searchParameter((char*)"-g", argc, argv);
+	char* fileNameHosts=searchParameter((char*)"-h", argc, argv);
 	return 0;
 }
