@@ -3,6 +3,7 @@
 
 #include<cstring>//C
 #include<iostream>//CPP
+#include<fstream>
 #include"Graph.hpp"//HPP
 
 class Adj;

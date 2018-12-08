@@ -20,8 +20,8 @@ Graph::~Graph(){
 	}
 }
 
-void Graph::createAdj(int of, int at, int cap, int cost){
-	this->nodes[of]->addAdj(at, cap, cost);
+void Graph::createAdj(int from, int to, int cap, int cost){
+	this->nodes[from]->addAdj(to, cap, cost);
 }
 
 void Graph::print(){
@@ -30,4 +30,33 @@ void Graph::print(){
 		this->nodes.at(i)->print();
 	}
 	printf("==GRAPH STRUCT==\n\n");
+}
+
+vector<int> Graph::smallerPath(int from, int to){
+	vector<int> path;
+	map<int, int> aux;
+	queue<int> visit;
+	visit.push(from);
+	this->nodes[visit.front()]->setFlag(true);
+	int now=visit.front();
+	while(visit.size()>0 && now!=to){
+		now=visit.front();
+		visit.pop();
+		for(int i=0; i<this->nodes[now]->getAdjs().size(); i++){
+			if(!this->nodes[this->nodes[now]->getAdjs()[i]->getTo()]->getFlag() && this->nodes[now]->getAdjs()[i]->canUpdate(1)){
+				visit.push(this->nodes[now]->getAdjs()[i]->getTo());
+				this->nodes[this->nodes[now]->getAdjs()[i]->getTo()]->setFlag(true);
+				aux[this->nodes[now]->getAdjs()[i]->getTo()]=now;
+			}
+		}
+	}
+	while(now!=from){
+		path.insert(path.begin(), now);
+		now=aux[now];
+	}
+	path.insert(path.begin(), now);
+	for(int i=1; i<path.size(); i++){
+		this->nodes[i-1]->update(1, i);
+	}
+	return path;
 }

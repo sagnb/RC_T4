@@ -22,8 +22,9 @@ public:
 	int getJumps();
 	void setFlag(bool status);
 	std::vector<Adj*> getAdjs();
-	void addAdj(int at, int cap, int cost);
+	void addAdj(int to, int cap, int cost);
 	void print();
+	void update(int charge, int to);
 };
 
 

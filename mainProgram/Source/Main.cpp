@@ -25,5 +25,23 @@ int main(int argc, char **argv){
 	}
 	char* fileNameGraph=searchParameter((char*)"-g", argc, argv);
 	char* fileNameHosts=searchParameter((char*)"-h", argc, argv);
+	ifstream fileGraph(fileNameGraph);
+	int tamGraph, numAdjs;
+	fileGraph>>tamGraph;
+	fileGraph>>numAdjs;
+	Graph *graph=new Graph(tamGraph);
+	for(int i=0; i<numAdjs; i++){
+		int node1, node2, cap, cost;
+		fileGraph>>node1;
+		fileGraph>>node2;
+		fileGraph>>cap;
+		fileGraph>>cost;
+		graph->createAdj(node1, node2, cap, cost);
+		graph->createAdj(node2, node1, cap, cost);
+	}
+	graph->print();
+	vector<int> smaller=graph->smallerPath(11, 99);
+	fileGraph.close();
+	delete graph;
 	return 0;
 }

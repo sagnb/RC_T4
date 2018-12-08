@@ -40,18 +40,26 @@ vector<Adj*> Node::getAdjs(){
 	return this->adjs;
 }
 
-void Node::addAdj(int at, int cap, int cost){
+void Node::addAdj(int to, int cap, int cost){
 	for(int i=0;  i<this->adjs.size(); i++){
-		if(at==this->adjs.at(i)->getAt()){
+		if(to==this->adjs.at(i)->getTo()){
 			return;
 		}
 	}
-	this->adjs.push_back(new Adj(at, cap, cost));
+	this->adjs.push_back(new Adj(to, cap, cost));
 }
 
 void Node::print(){
 	printf("node: %d jumps: %d\n", this->index, this->jumps);
 	for(int i=0; i<this->adjs.size(); i++){
-		printf("\tadj %d: %d cost: %d\n", i, this->adjs.at(i)->getAt(), this->adjs.at(i)->getCost());
+		printf("\tadj %d: %d cost: %d\n", i, this->adjs.at(i)->getTo(), this->adjs.at(i)->getCost());
+	}
+}
+
+void Node::update(int charge, int to){
+	for(int i=0; i<this->adjs.size(); i++){
+		if(this->adjs[i]->getTo()==to){
+			this->adjs[i]->update(charge);
+		}
 	}
 }

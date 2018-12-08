@@ -3,17 +3,18 @@
 
 class Adj{
 private:
-	int at;
+	int to;
 	int cap;
 	int charge;
 	int cost;
 public:
 	Adj();
-	Adj(int at, int cap, int cost);
+	Adj(int to, int cap, int cost);
 	~Adj();
-	int getAt();
+	int getTo();
 	int getCost();
-	bool updateCharge(int charge);
+	bool canUpdate(int charge);
+	void update(int charge);
 };
 
 #endif
