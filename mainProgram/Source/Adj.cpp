@@ -31,3 +31,7 @@ void Adj::update(int charge){
 		this->charge+=charge;
 	}
 }
+
+void Adj::reset(){
+	this->charge=0;
+}

@@ -63,3 +63,10 @@ void Node::update(int charge, int to){
 		}
 	}
 }
+
+void Node::reset(){
+	for(int i=0; i<this->adjs.size(); i++){
+		this->adjs[i]->reset();
+	}
+	this->visitFLag=false;
+}

@@ -25,6 +25,7 @@ public:
 	void addAdj(int to, int cap, int cost);
 	void print();
 	void update(int charge, int to);
+	void reset();
 };
 
 

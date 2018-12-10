@@ -40,8 +40,25 @@ int main(int argc, char **argv){
 		graph->createAdj(node2, node1, cap, cost);
 	}
 	graph->print();
-	vector<int> smaller=graph->smallerPath(11, 99);
+	vector<int> smaller=graph->smallerPath(80, 70);
+	graph->resetGraph();
+	vector<int> bestCost=graph->bestWayCost(80, 70);
+	graph->resetGraph();
+	vector<int> bestJumps=graph->bestWayJumps(80, 70);
 	fileGraph.close();
+	printf("\nsmaller ");
+	for(int i=0; i<smaller.size(); i++){
+		printf("ASs%d ", smaller[i]);
+	}
+	printf("\nbestJumps ");
+	for(int i=0; i<bestJumps.size(); i++){
+		printf("ASs%d ", bestJumps[i]);
+	}
+	printf("\nbestCost ");
+	for(int i=0; i<bestCost.size(); i++){
+		printf("ASs%d ", bestCost[i]);
+	}
+	printf("\n");
 	delete graph;
 	return 0;
 }

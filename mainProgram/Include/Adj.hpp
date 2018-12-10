@@ -15,6 +15,7 @@ public:
 	int getCost();
 	bool canUpdate(int charge);
 	void update(int charge);
+	void reset();
 };
 
 #endif
