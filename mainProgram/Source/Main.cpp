@@ -49,8 +49,7 @@ int main(int argc, char **argv){
 		hosts.push_back(value);
 	}
 	// graph->print();
-	for(int k=0; k<hosts.size()-3; k+=4)
-	{
+	for(int k=0; k<hosts.size()-3; k+=4){
 		string value, value2;
 		for(int l=2; l<hosts[k+1].size(); l++){
 			value+=hosts[k+1][l];
@@ -69,8 +68,7 @@ int main(int argc, char **argv){
 		}
 	}
 	graph->resetGraph();
-	for(int k=0; k<hosts.size()-3; k+=4)
-	{
+	for(int k=0; k<hosts.size()-3; k+=4){
 		string value, value2;
 		for(int l=2; l<hosts[k+1].size(); l++){
 			value+=hosts[k+1][l];
@@ -89,8 +87,7 @@ int main(int argc, char **argv){
 		}
 	}
 	graph->resetGraph();
-	for(int k=0; k<hosts.size()-3; k+=4)
-	{
+	for(int k=0; k<hosts.size()-3; k+=4){
 		string value, value2;
 		for(int l=2; l<hosts[k+1].size(); l++){
 			value+=hosts[k+1][l];
