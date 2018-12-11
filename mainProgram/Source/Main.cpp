@@ -63,7 +63,7 @@ int main(int argc, char **argv){
 		strcpy(as1, value.c_str());
 		strcpy(as2, value2.c_str());
 		vector<int> smaller=graph->smallerPath(atoi((char *)as1), atoi((char *)as2));
-		cout<<"\nsmaller host "<<hosts[k]<<" to host"<<hosts[k+2]<<" : ";
+		cout<<"\nsmaller host "<<hosts[k]<<" to host "<<hosts[k+2]<<" : ";
 		for(int i=0; i<smaller.size(); i++){
 			printf("As%d ", smaller[i]);
 		}
@@ -83,7 +83,7 @@ int main(int argc, char **argv){
 		strcpy(as1, value.c_str());
 		strcpy(as2, value2.c_str());
 		vector<int> bestCost=graph->bestWayCost(atoi((char *)as1), atoi((char *)as2));
-		cout<<"\nbestCost host "<<hosts[k]<<" to host"<<hosts[k+2]<<" : ";
+		cout<<"\nbestCost host "<<hosts[k]<<" to host "<<hosts[k+2]<<" : ";
 		for(int i=0; i<bestCost.size(); i++){
 			printf("As%d ", bestCost[i]);
 		}
@@ -103,7 +103,7 @@ int main(int argc, char **argv){
 		strcpy(as1, value.c_str());
 		strcpy(as2, value2.c_str());
 		vector<int> bestJumps=graph->bestWayJumps(atoi((char *)as1), atoi((char *)as2));
-		cout<<"\nbestJumps host "<<hosts[k]<<" to host"<<hosts[k+2]<<" : ";
+		cout<<"\nbestJumps host "<<hosts[k]<<" to host "<<hosts[k+2]<<" : ";
 		for(int i=0; i<bestJumps.size(); i++){
 			printf("As%d ", bestJumps[i]);
 		}
