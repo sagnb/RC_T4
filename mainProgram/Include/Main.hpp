@@ -1,6 +1,8 @@
 #ifndef MAIN_HPP
 #define MAIN_HPP
 
+#include<cstdio>//C
+#include<cstdlib>//C
 #include<cstring>//C
 #include<iostream>//CPP
 #include<fstream>

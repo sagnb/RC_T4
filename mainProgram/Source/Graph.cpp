@@ -71,6 +71,9 @@ vector<int> Graph::smallerPath(int from, int to){
 	for(int i=1; i<path.size(); i++){
 		this->nodes[i-1]->update(1, i);
 	}
+	for(int i=0; i<this->nodes.size(); i++){
+		this->nodes[i]->setFlag(false);
+	}
 	return path;
 }
 
@@ -107,6 +110,9 @@ std::vector<int> Graph::bestWayCost(int from, int to){
 	for(int i=1; i<path.size(); i++){
 		this->nodes[i-1]->update(1, i);
 	}
+	for(int i=0; i<this->nodes.size(); i++){
+		this->nodes[i]->setFlag(false);
+	}
 	return path;
 }
 
@@ -142,6 +148,9 @@ std::vector<int> Graph::bestWayJumps(int from, int to){
 	path.insert(path.begin(), now);
 	for(int i=1; i<path.size(); i++){
 		this->nodes[i-1]->update(1, i);
+	}
+	for(int i=0; i<this->nodes.size(); i++){
+		this->nodes[i]->setFlag(false);
 	}
 	return path;
 }
